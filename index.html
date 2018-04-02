@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h2>This is my app</h2>
+    <div id="container"></div>
+    <div id="photoContainer"></div>
+    <input type="button" name="Button" id="loadPhotoButton" value="Load Photo">
+    <input type="button" name="Button" id="loadPhoto2Button" value="Load Photo 2">
+    <input type="button" name="Button" id="loadPhoto3Button" value="Load Photo 3">
+
+
+    <script>
+
+      $(document).ready(function() {
+        $('#container').load('ajax/ajax.html', function(responseText, statusText, xhr) {
+          if (statusText == "true") {
+            console.log("it worked");
+          } else if (statusText == "false") {
+            console.log('Error: ' + xhr.status + ' ' + xhr.statusText);
+          }
+        });
+
+        $('#photoContainer').load('loadPhoto.html', function(responseText, statusText, xhr) {
+          if (statusText == "true") {
+            console.log("it worked");
+          } else if (statusText == "false") {
+            console.log('Error: ' + xhr.status + ' ' + xhr.statusText);
+          }
+        });
+
+        $('#loadPhotoButton').on('click', function() {
+          $('#photoContainer').load('loadPhoto.html', function(responseText, statusText, xhr) {
+            if (statusText == "true") {
+              console.log("it worked");
+            } else if (statusText == "false") {
+              console.log('Error: ' + xhr.status + ' ' + xhr.statusText);
+            }
+          })
+        });
+
+        $('#loadPhoto2Button').on('click', function() {
+          $('#photoContainer').load('loadPhoto2.html', function(responseText, statusText, xhr) {
+            if (statusText == "true") {
+              console.log("it worked");
+            } else if (statusText == "false") {
+              console.log('Error: ' + xhr.status + ' ' + xhr.statusText);
+            }
+          })
+        });
+
+        $('#loadPhoto3Button').on('click', function() {
+          $('#photoContainer').load('loadPhoto3.html', function(responseText, statusText, xhr) {
+            if (statusText == "true") {
+              console.log("it worked");
+            } else if (statusText == "false") {
+              console.log('Error: ' + xhr.status + ' ' + xhr.statusText);
+            }
+          })
+        });
+
+      });
+
+    </script>
+
+  </body>
+</html>
